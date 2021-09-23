@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { FETCH_CATEGORY, UPDATE_CONTEXT } from "../Context/userAction";
 
 /**
@@ -26,6 +27,7 @@ export const getCategories = (update, effect) => {
  * @return
  */
 export const setAdsCategory = async (value, dispatch, state) => {
+  if (value == -1) return;
   const category = JSON.parse(value);
   UPDATE_CONTEXT(dispatch, state, { category });
 };
@@ -51,5 +53,36 @@ export const monthlyBudget = async (value, dispatch, state, error, update) => {
     update(value);
     error("");
     UPDATE_CONTEXT(dispatch, state, { monthlyBudget: value });
+  }
+};
+
+/**
+ * *********************************************************************************************
+ * @description function to set monthly budget in context
+ * @param {*} value
+ * @param {*} dispatch
+ * @param {*} state
+ * @param {*} error
+ * @param {*} update
+ * @returns
+ */
+export const monthlySaleLead = async (
+  value,
+  dispatch,
+  state,
+  error,
+  update
+) => {
+  if (isNaN(value)) {
+    // error("Must input Valid Amount");
+    return false;
+  } else if (value < 100) {
+    update(value);
+    UPDATE_CONTEXT(dispatch, state, { sale: value });
+    error("Must input valid Amount");
+  } else {
+    update(value);
+    error("");
+    UPDATE_CONTEXT(dispatch, state, { sale: value });
   }
 };

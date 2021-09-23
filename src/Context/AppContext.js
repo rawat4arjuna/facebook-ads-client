@@ -5,6 +5,7 @@ let initialState = {
   data: {
     category: "",
     monthlyBudget: 100,
+    sale: 100,
   },
 };
 

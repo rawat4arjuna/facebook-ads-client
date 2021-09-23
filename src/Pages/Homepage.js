@@ -5,10 +5,12 @@ import Header from "../Components/header";
 import OverAllPPC from "../Components/overAllPPC";
 import Input from "../Components/input";
 import Result from "../Components/result";
+import Navbar from "../Components/navBar";
 export default function Homepage() {
   return (
     <React.Fragment>
-      <Row>
+      <Row className="main">
+        <Navbar />
         <Header />
         <OverAllPPC />
         <Container className="px-4 py-4 overflow-hidden d-flex justify-content-center align-items-center">
