@@ -19,12 +19,12 @@ export default function Result() {
             These values are set on your selected industry benchmark
           </Card.Subtitle>
           <div>
-            <p>One Month Budget : {state.data.monthlyBudget | 0}$</p>
+            <p>One Month Budget : {state.data.monthlyBudget || 0}$</p>
             <p>
-              Daily Estimates: {dailyAdSpend(state.data.monthlyBudget) | 0}$
+              Daily Estimates: {dailyAdSpend(state.data.monthlyBudget) || 0}$
             </p>
-            <p>CTR (Click Through Rate): {state.data.category?.ctr | 0}%</p>
-            <p>CPC (Cost Per Click) : {state.data.category?.cpc | 0}$</p>
+            <p>CTR (Click Through Rate): {state.data.category?.ctr || 0}%</p>
+            <p>CPC (Cost Per Click) : {state.data.category?.cpc || 0}$</p>
             <p>
               Cost Per Thousand Impressions (CPM):
               {costPerThousandsImpression(
@@ -35,7 +35,7 @@ export default function Result() {
             </p>
             <p>
               Number of Impressions :{" "}
-              {impression(state.data.monthlyBudget, state.data.category) | 0}
+              {impression(state.data.monthlyBudget, state.data.category) || 0}
             </p>
             <p>One Month Ads Sale : {state.data.sale}$</p>
             <p>
