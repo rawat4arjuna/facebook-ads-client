@@ -42,7 +42,7 @@ export const setAdsCategory = async (value, dispatch, state) => {
  * @returns
  */
 export const monthlyBudget = async (value, dispatch, state, error, update) => {
-  if (isNaN(value) || value < 1) {
+  if (isNaN(value)) {
     error("Must input Valid Amount");
     return false;
   } else {
@@ -69,7 +69,7 @@ export const monthlySaleLead = async (
   error,
   update
 ) => {
-  if (isNaN(value) || value < 1) {
+  if (isNaN(value)) {
     error("Must input Valid Amount");
     return false;
   } else {
